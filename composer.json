@@ -1,13 +1,21 @@
 {
-    "name": "brozot/laravel-fcm",
+    "name": "seakmengc/laravel-fcm",
     "description": "Laravel / Lumen package for Firebase Cloud Messaging ",
-    "keywords": ["laravel", "lumen", "firebase", "notification", "push", "fcm", "firebase cloud messaging"],
+    "keywords": [
+        "laravel",
+        "lumen",
+        "firebase",
+        "notification",
+        "push",
+        "fcm",
+        "firebase cloud messaging"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Nicolas Brosy",
-            "email": "nicolas.brosy@gmail.com"
+            "name": "Seakmeng Chheang",
+            "email": "c.seakmeng0603@gmail.com"
         }
     ],
     "require": {
@@ -17,8 +25,8 @@
         "monolog/monolog": "^1.12|^2.0"
     },
     "require-dev": {
-        "mockery/mockery" : "0.9.*",
-        "phpunit/phpunit" : "4.7.*",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "4.7.*",
         "satooshi/php-coveralls": "dev-master",
         "laravel/laravel": "5.2.*"
     },
