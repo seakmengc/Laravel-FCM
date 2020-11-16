@@ -15,25 +15,21 @@ It currently **only supports HTTP protocol** for :
 
 > Note: The XMPP protocol is not currently supported.
 
-
 ## Installation
 
 To get the latest version of Laravel-FCM on your project, require it from "composer":
 
-
-	$ composer require brozot/laravel-fcm
-
+    $ composer require seakmengc/laravel-fcm
 
 Or you can add it directly in your composer.json file:
 
 ```json
 {
-    "require": {
-        "brozot/laravel-fcm": "1.3.*"
-    }
+  "require": {
+    "seakmengc/laravel-fcm": "1.4.*"
+  }
 }
 ```
-
 
 ### Laravel
 
@@ -63,15 +59,13 @@ Add the facade aliases in the same file:
 
 Publish the package config file using the following command:
 
-
-	$ php artisan vendor:publish --provider="LaravelFCM\FCMServiceProvider"
-
+    $ php artisan vendor:publish --provider="LaravelFCM\FCMServiceProvider"
 
 ### Lumen
 
-Register the provider in your bootstrap app file ```boostrap/app.php```
+Register the provider in your bootstrap app file `boostrap/app.php`
 
-Add the following line in the "Register Service Providers"  section at the bottom of the file.
+Add the following line in the "Register Service Providers" section at the bottom of the file.
 
 ```php
 $app->register(LaravelFCM\FCMServiceProvider::class);
@@ -84,8 +78,7 @@ class_alias(\LaravelFCM\Facades\FCM::class, 'FCM');
 class_alias(\LaravelFCM\Facades\FCMGroup::class, 'FCMGroup');
 ```
 
-Copy the config file ```fcm.php``` manually from the directory ```/vendor/brozot/laravel-fcm/config``` to the directory ```/config ``` (you may need to create this directory).
-
+Copy the config file `fcm.php` manually from the directory `/vendor/brozot/laravel-fcm/config` to the directory `/config ` (you may need to create this directory).
 
 ### Package Configuration
 
@@ -100,7 +93,6 @@ To get these keys, you must create a new application on the [firebase cloud mess
 
 After the creation of your application on Firebase, you can find keys in `project settings -> cloud messaging`.
 
-
 ## Basic Usage
 
 Two types of messages can be sent using Laravel-FCM:
@@ -109,7 +101,6 @@ Two types of messages can be sent using Laravel-FCM:
 - Data messages, which are handled by the client app
 
 More information is available in the [official documentation](https://firebase.google.com/docs/cloud-messaging/concept-options).
-
 
 ### Downstream Messages
 
@@ -287,7 +278,6 @@ $groupResponse->numberFailure();
 $groupResponse->tokensFailed();
 ```
 
-
 #### Creating a Group
 
 ```php
@@ -321,7 +311,6 @@ $notificationKey = "notification_key_received_when_group_was_created";
 $key = FCMGroup::removeFromGroup($groupName, $notificationKey, $tokens);
 ```
 
-
 ## Options
 
 Laravel-FCM supports options based on the options of Firebase Cloud Messaging. These options can help you to define the specificity of your notification.
@@ -348,7 +337,6 @@ Notification payload is used to send a notification, the behaviour is defined by
 
 See the [official documentation](https://firebase.google.com/docs/cloud-messaging/concept-options#notifications).
 
-
 ```php
 $notificationBuilder = new PayloadNotificationBuilder();
 $notificationBuilder->setTitle('title')
@@ -368,7 +356,6 @@ Set the data key with your custom key-value pairs to send a data payload to the 
 
 See the [official documentation](https://firebase.google.com/docs/cloud-messaging/concept-options#data_messages).
 
-
 ```php
 $dataBuilder = new PayloadDataBuilder();
 $dataBuilder->addData([
@@ -384,7 +371,6 @@ App behavior when receiving messages that include both notification and data pay
 
 - **Background**, apps receive notification payload in the notification tray, and only handle the data payload when the user taps on the notification.
 - **Foreground**, your app receives a message object with both payloads available.
-
 
 ## Topics
 
@@ -404,7 +390,6 @@ $topics->topic('TopicA')
 	       $condition->topic('TopicB')->orTopic('TopicC');
        });
 ```
-
 
 ## Testing
 
@@ -437,7 +422,6 @@ $this->app->singleton('fcm.sender', function($app) use($sender) {
 ## API Documentation
 
 You can find more documentation about the API in the [API reference](./doc/Readme.md).
-
 
 ## Licence
 
